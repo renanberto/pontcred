@@ -10,10 +10,29 @@ class Header extends Component {
     const github = this.props.data.github;
     const name = this.props.data.name;
     const description = this.props.data.description;
+    const icon = "images/pontcred-icon.png";
+
+    // custom particle config
+
+    let config = {
+      num: [4, 7],
+      rps: 0.6,
+      radius: [5, 1],
+      life: [1.5, 3],
+      v: [2, 3],
+      tha: [-50, 50],
+      alpha: [0.6, 0],
+      scale: [.1, 0.9],
+      body: icon,
+      position: "all",
+      //color: ["random", "#ff0000"],
+      cross: "dead",
+      random: 10
+    };
 
     return (
       <header id="home">
-        <ParticlesBg type="circle" bg={true} />
+        <ParticlesBg type="custom" config={config} bg={true} />
 
         <nav id="nav-wrap">
           <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
@@ -37,18 +56,6 @@ class Header extends Component {
             </li>
 
             <li>
-              <a className="smoothscroll" href="#resume">
-                Resume
-              </a>
-            </li>
-
-            <li>
-              <a className="smoothscroll" href="#portfolio">
-                Works
-              </a>
-            </li>
-
-            <li>
               <a className="smoothscroll" href="#contact">
                 Contact
               </a>
@@ -65,16 +72,6 @@ class Header extends Component {
               <h3>{description}.</h3>
             </Fade>
             <hr />
-            <Fade bottom duration={2000}>
-              <ul className="social">
-                <a href={project} className="button btn project-btn">
-                  <i className="fa fa-book"></i>Project
-                </a>
-                <a href={github} className="button btn github-btn">
-                  <i className="fa fa-github"></i>Github
-                </a>
-              </ul>
-            </Fade>
           </div>
         </div>
 
